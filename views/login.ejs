@@ -1,5 +1,5 @@
 <%- include("./parts/header.ejs") %> 
-
+<% var error %> 
 
 
 <h2 class="text-center mt-4">
@@ -7,7 +7,12 @@
 </h2>
 
 <div class="container w-100 d-flex flex-column align-items-center justify-content-center">
-	<form method="POST" action="/admin_panel" class="mt-4 mb-4" >
+	<% if(error) { %>
+		<div class="alert alert-danger">
+			<%= error %> 
+		</div>
+	<% } %> 
+	<form method="POST" class="mt-4 mb-4" autocomplete="off" >
 		<input type="email" class="form-control" name="email" placeholder="Enter your email..." required>
 		<input type="password" class="form-control mt-3" name="password" placeholder="Enter your password..." required>
 		<button type="submit" class="btn btn-primary btn-large w-100 mt-3">
