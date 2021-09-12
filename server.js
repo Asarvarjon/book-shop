@@ -5,6 +5,7 @@ const server = express()
 const cookieParser = require("cookie-parser");
 const path = require("path");
 const routes = require("./routes/routes")
+const mongodb = require("./modules/mongo")
 
 
 
@@ -26,10 +27,23 @@ server.use(express.static(path.join(__dirname, "public")))
 
 
 // Settings
-server.set("view engine", "ejs")
+server.set("view engine", "ejs");
 
 
 // Routes
+ 
 
-routes(server);
 
+( async () => {
+    const db = await mongodb();
+    try {
+        server.use( (req, res, next) => { 
+            req.db = db;
+            next()
+        })
+    } catch (error) {
+        console.log(error);
+    } finally {
+        routes(server)
+    }    
+})();
