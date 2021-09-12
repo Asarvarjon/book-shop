@@ -1,0 +1,33 @@
+<%- include("./parts/header.ejs") %> 
+
+
+
+<h2 class="text-center mt-4">
+	Register
+</h2>
+
+<div class="container w-100 mb-5 d-flex flex-column align-items-center justify-content-center">
+	<form method="POST" action="/registration" class="mt-4 mb-4 w-50 d-flex flex-column align-items-center justify-content-center" >
+		 <div class="row">
+			 <div class="col-lg-6">
+				 <input type="text" name="name" class="form-control" placeholder="John Doe" required>
+
+				 <input type="number" name="phone" class="form-control mt-3" placeholder="Phone number" required>
+
+			 </div>
+			 <div class="col-lg-6">
+				<input type="email" name="email" class="form-control" placeholder="JohnDoe@gmail.com" required>
+
+				<input type="password" name="password" class="form-control mt-3" placeholder="Your password" required>
+			 </div>
+		 </div>
+
+		 <button type="submit" class="btn btn-primary mt-4 w-50">
+			 Register
+		 </button>
+	</form>
+
+	<p>Do you have account? <a href="/login">Login</a></p>
+
+</div>
+<%- include("./parts/footer.ejs") %> 

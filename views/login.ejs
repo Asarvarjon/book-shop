@@ -1,0 +1,20 @@
+<%- include("./parts/header.ejs") %> 
+
+
+
+<h2 class="text-center mt-4">
+	Login
+</h2>
+
+<div class="container w-100 d-flex flex-column align-items-center justify-content-center">
+	<form method="POST" action="/admin_panel" class="mt-4 mb-4" >
+		<input type="email" class="form-control" name="email" placeholder="Enter your email..." required>
+		<input type="password" class="form-control mt-3" name="password" placeholder="Enter your password..." required>
+		<button type="submit" class="btn btn-primary btn-large w-100 mt-3">
+			Login
+		</button>
+	</form>
+
+	<p>Don't you have account? <a href="/register">Register</a></p>
+</div>
+<%- include("./parts/footer.ejs") %> 
