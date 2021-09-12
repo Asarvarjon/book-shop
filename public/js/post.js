@@ -23,6 +23,11 @@ AdminForm.addEventListener("submit", async (event) => {
         body: formData,
     });
 
+    response = await response.json();
     console.log(response);
+
+    // alert(
+    //     response.ok ? "Succesfully added" : response.error
+    // );
 })
 
