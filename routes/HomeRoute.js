@@ -1,7 +1,9 @@
 const router = require("express").Router();
 
 router.get("/", (req, res) => {  
-    res.render("index") 
+    res.render("index" ,{
+        user: req.user
+    }) 
 });  
  
 // router.get("/photo-detail.html", (req, res) => {

@@ -1,7 +1,9 @@
 const router = require("express").Router(); 
 
 router.get("/contact", (req, res) => {
-    res.render("contact")
+    res.render("contact",{
+        user: req.user
+    })
 }); 
 
 

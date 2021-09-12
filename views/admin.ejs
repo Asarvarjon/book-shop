@@ -1,0 +1,34 @@
+<%- include("./parts/header.ejs") %>
+
+<h2 class="text-center mt-4">
+    Admin Panel
+</h2>
+
+
+<div class="container mt-4 mb-4">
+    <form id="form" method="POST" class="w-100 d-flex flex-column align-items-center justify-content-center" autocomplete="off">
+        <div class="row w-100">
+            <div class="col-lg-6">
+                <input id="name" type="text" name="name" placeholder="Book name" class="form-control">
+                <input id="price" type="number" name="price" placeholder="Price" class="form-control mt-3"> 
+                <input id="author" type="text" name="author" placeholder="Author" class="form-control mt-3">
+                <div class="mb-3">
+                    <label for="formFile" class="form-label">Upload photo</label>
+                    <input class="form-control" name="file" type="file" id="file">
+                  </div>
+            </div>
+    
+            <div class="col-lg-6">
+                <textarea id="textarea" class="form-control" style="resize: none;"  cols="30" placeholder="Description" rows="10"></textarea>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-3">
+            Submit
+        </button>
+    </form>
+    
+</div>
+
+
+<%- include("./parts/other.ejs") %> 

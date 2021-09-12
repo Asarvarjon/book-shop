@@ -4,11 +4,7 @@ const About = require("./About")
 const Contact = require("./Contact")
 const Login = require("./Login")
 const Register = require("./Register")
-
-
-
-
-
+const Admin = require("./Admin") 
 
 module.exports = (server) => {
    server.use(HomeRoute.path, HomeRoute.router)
@@ -17,6 +13,7 @@ module.exports = (server) => {
    server.use(Contact.path, Contact.router) 
    server.use(Login.path, Login.router) 
    server.use(Register.path, Register.router)
+   server.use(Admin.path, Admin.router)
 
    server.use((req, res) => {
        res.render("error")

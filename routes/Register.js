@@ -3,7 +3,9 @@ const { generateCrypt } = require("../modules/bcrypt");
 const { RegisterValidation } = require("../modules/validations")
 
 router.get("/register", (req, res) => { 
-    res.render("register")
+    res.render("register" ,{
+        user: req.user
+    })
 }); 
 
 router.post("/register", async (req, res) => {

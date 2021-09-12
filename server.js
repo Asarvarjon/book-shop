@@ -5,7 +5,8 @@ const server = express()
 const cookieParser = require("cookie-parser");
 const path = require("path");
 const routes = require("./routes/routes")
-const mongodb = require("./modules/mongo")
+const mongodb = require("./modules/mongo");
+const UserMiddleware = require("./middlewares/UserMiddleware");
 
 
 
@@ -41,6 +42,8 @@ server.set("view engine", "ejs");
             req.db = db;
             next()
         })
+
+        server.use(UserMiddleware)
     } catch (error) {
         console.log(error);
     } finally {
