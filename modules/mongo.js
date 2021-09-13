@@ -1,6 +1,6 @@
 const { MongoClient } = require("mongodb");
 
-const Mongo_CS = process.env.Mongo_CS;
+const Mongo_CS = "mongodb+srv://book:parol@cluster0.i6biz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
 const client = new MongoClient(Mongo_CS);
 
