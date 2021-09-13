@@ -26,8 +26,17 @@ AdminForm.addEventListener("submit", async (event) => {
     response = await response.json();
     console.log(response);
 
-    // alert(
-    //     response.ok ? "Succesfully added" : response.error
-    // );
+     if(response.ok) {
+         bookName.value = "";
+         bookAuthor.value = "";
+         bookPrice.value = "";
+         bookPhoto.value = "";
+         bookDesc.value = "";
+     }
+ 
 })
+
+
+//
+
 

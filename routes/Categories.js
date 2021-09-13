@@ -1,8 +1,11 @@
 const router = require("express").Router(); 
 
-router.get("/categories", (req, res) => {
+router.get("/categories", async (req, res) => {
+    const data = await req.db.books.find().toArray();  
+
     res.render("categories",{
-        user: req.user
+        user: req.user,
+        data
     })
 }); 
 

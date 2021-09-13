@@ -1,4 +1,5 @@
 <%- include("./parts/header.ejs") %>
+<% var data = data || [] %> 
 
 <h2 class="text-center mt-4">
     Admin Panel
@@ -30,5 +31,37 @@
     
 </div>
 
+<div class="container mt-5">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Author</th>
+                <th>Price</th>
+                <th>Description</th>
+            </tr>  
+        </thead>
+    
+        <tbody>
+            <% for (let book of data.reverse()){ %> 
+                <tr>
+                    <td>
+                        <%= book.name %> 
+                    </td>
+                    <td>
+                        <%= book.author %> 
+                    </td>
+                    <td>
+                        <%= book.price %> 
+                    </td>
+                    <td>
+                        <%= book.content %> 
+                    </td>
+                </tr>
+            <% } %> 
+        </tbody>
+    </table>
+    
+</div>
 
 <%- include("./parts/other.ejs") %> 
