@@ -1,96 +1,226 @@
-<%- include("./parts/header.ejs")  %>
+ 
 <% var data = data || [] %> 
 <% var book %> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book.uz</title>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="css/templatemo-style.css">
+<!--
+    
+TemplateMo 556 Catalog-Z
 
+https://templatemo.com/tm-556-catalog-z
 
-<div class="tm-hero d-flex justify-content-center align-items-center" data-parallax="scroll" data-image-src="img/hero.jpg">
-    <form class="d-flex tm-search-form">
-        <input class="form-control tm-search-input" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success tm-search-btn" type="submit">
-            <i class="fas fa-search"></i>
-        </button>
-    </form>
-</div>
-
-<div class="container-fluid tm-container-content tm-mt-60">
-    <div class="row mb-4">
-        <h2 class="col-12 tm-text-primary"><%= book.name %> </h2>
+-->
+</head>
+<body> 
+  <header class="bg-light pb-5">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand fs-3  m-0 me-4 " href="/">
+                    <i class="fas fa-book-open mr-2"></i>
+                    Book.uz
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse ms-auto" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-1 h5 m-0 active" aria-current="page" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-2 h5 m-0 " href="/categories">Categories</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-3 h5 m-0 " href="/about">About</a>
+                        </li> 
+    
+                    <% if(!user) { %> 
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-3 h5 m-0" href="/login">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-4 h5 m-0" href="/register">Register</a>
+                        </li>
+                        <% } else { %> 
+                            <li class="nav-item">
+                                <a class="nav-link nav-link-4 h5 m-0" href="/admin">Admin</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link nav-link-4 h5 m-0" href="/order">Order</a>
+                            </li>
+                        <% } %> 
+                    </ul>
+                </div>
+            </div>
+        </nav>
+       </div>
+       <div class="mt-4 d-flex justify-content-center align-items-center" data-parallax="scroll" data-image-src="img/hero.jpg">
+        <form class="d-flex tm-search-form">
+            <input class="form-control tm-search-input" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success tm-search-btn" type="submit">
+                Search
+            </button>
+        </form>
     </div>
-    <div class="row tm-mb-90">            
-        <div class="col-xl-8 col-lg-7 col-md-6 col-sm-12">
-            <img src="uploads/<%= book._id + "." + book.photo_ext %>" alt="Image" class="img-fluid">
+  </header>
+
+
+
+
+<section class="bg-light m-0">
+    <div class="container  ">
+        <div class="row pb-4 pt-4">
+            <h2 class="col-12 tm-text-primary"><%= book.name %> </h2>
         </div>
-        <div class="col-xl-4 col-lg-5 col-md-6 col-sm-12">
-            <div class="tm-bg-gray tm-video-details">
-                <p class="mb-4">
-                    Please support us by making <a href="https://paypal.me/templatemo" target="_parent" rel="sponsored">a PayPal donation</a>. Nam ex nibh, efficitur eget libero ut, placerat aliquet justo. Cras nec varius leo.
-                </p>
-                <div class="text-center mb-5">
-                    <a href="#" class="btn btn-primary tm-btn-big">Download</a>
-                </div>                    
-                <div class="mb-4 d-flex flex-wrap">
-                    <div class="mr-4 mb-2">
-                        <span class="tm-text-gray-dark">Dimension: </span><span class="tm-text-primary">1920x1080</span>
-                    </div>
-                    <div class="mr-4 mb-2">
-                        <span class="tm-text-gray-dark">Format: </span><span class="tm-text-primary">JPG</span>
-                    </div>
-                </div>
-                <div class="mb-4">
-                    <h3 class="tm-text-gray-dark mb-3">License</h3>
-                    <p>Free for both personal and commercial use. No need to pay anything. No need to make any attribution.</p>
-                </div>
-                <div>
-                    <h3 class="tm-text-gray-dark mb-3">Tags</h3>
-                    <a href="#" class="tm-text-primary mr-4 mb-2 d-inline-block">Cloud</a>
-                    <a href="#" class="tm-text-primary mr-4 mb-2 d-inline-block">Bluesky</a>
-                    <a href="#" class="tm-text-primary mr-4 mb-2 d-inline-block">Nature</a>
-                    <a href="#" class="tm-text-primary mr-4 mb-2 d-inline-block">Background</a>
-                    <a href="#" class="tm-text-primary mr-4 mb-2 d-inline-block">Timelapse</a>
-                    <a href="#" class="tm-text-primary mr-4 mb-2 d-inline-block">Night</a>
-                    <a href="#" class="tm-text-primary mr-4 mb-2 d-inline-block">Real Estate</a>
+        <div class="row mt-5 d-flex align-items-center justify-content-between">            
+            <div class="col-xl-4 col-lg-7 col-md-6 col-sm-12">
+                <img src="/uploads/<%= book._id + "." + book.photo_ext %>" alt="Image" class="img-fluid" style="height:400px; width: 350px">
+            </div>
+            <div class="col-xl-6 col-lg-5 col-md-6 col-sm-12 ">
+                <div class="tm-bg-gray tm-video-details">
+                    <p class="mb-4">
+                       <%= book.content %> 
+                    </p>
+                    <div class="text-center mb-5">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                            Buy now
+                          </button>
+                    </div>                    
+                    <div class="mb-4 d-flex flex-wrap">
+                        <div class="mr-4 mb-2">
+                            <span class="tm-text-gray-dark h4">Price: </span><span class="tm-text-primary h4 text-danger"><%= book.price %> soum </span>
+                        </div> 
+                    </div> 
+                    
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row mb-4">
-        <h2 class="col-12 tm-text-primary">
-            Related Photos
-        </h2>
-    </div>
-    <div class="row mb-3 tm-gallery">
-        <% for (let book of data.reverse()) { %>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-   
-                 
-                    <figure class=" effect-ming tm-video-item">
-                        <img src="uploads/<%= book._id + "." + book.photo_ext %> " class="img-fluid" alt="Image"
-                            style="object-fit: cover; max-width:100%; height: 220px;">
-                        <figcaption class="d-flex align-items-center justify-content-center">
-                            <h2><%= book.name %>
-                            </h2>
-                        </figcaption>
-                    </figure> 
-                <div class="d-flex justify-content-between tm-text-gray">
-                    <span class="tm-text-gray-light"><%= book.datetime %> </span>
-                    <span>Price: <%= book.price %> soum </span>
+        <div class="row mb-4 mt-5">
+            <h2 class="col-12 tm-text-primary">
+                New Books
+            </h2>
+        </div>
+        <div class="row pb-3 tm-gallery">
+            <% for (let book of data.reverse()) { %>
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-5"> 
+                        <figure class=" effect-ming tm-video-item">
+                            <img src="/uploads/<%= book._id + "." + book.photo_ext %> " class="img-fluid" alt="Image"
+                                style="object-fit: cover; max-width:100%; height: 220px;">
+                            <figcaption class="d-flex align-items-center mt-3 mb-3 justify-content-center" style="height: 50px;">
+                                <h4 ><%= book.name %>
+                                </h4>
+                            </figcaption>
+                        </figure> 
+                    <div class="d-flex justify-content-between tm-text-gray">
+                        <span class="tm-text-gray-light"><%= book.datetime %> </span>
+                        <span>Price: <%= book.price %> soum </span>
+                    </div>
+       
+                    <a  href="/details/<%= book._id%> " data-id="<%= book._id%>" class="btn btn-primary load_button mt-2 mb-2">
+                        Order now
+                    </a>  
                 </div>
-   
-                <form class="form">
-                   <button type="submit"  data-id="<%= book._id%>" class="btn btn-primary load_button mt-2 mb-2">
-                       Buy now
-                   </button> 
-                </form>
-                <div class="info mt-2 mb-2" style="height: 150px; overflow: hidden;">
-                    <h6 class="text-center mt-2">
-                        <%= book.name %>
-                    </h6> 
-                </div>
+                <% } %>      
+        </div> <!-- row -->
+    </div> <!-- container-fluid, tm-container-content -->
+    
+</section>
+
+
+<footer class=" pt-5 pb-3 tm-text-gray tm-footer" style="background-color: rgb(187, 185, 185);">
+    <div class="container-fluid tm-container-small">
+        <div class="row">
+            <div class="col-lg-6 col-md-12 col-12 px-5 mb-5">
+                <h3 class="tm-text-primary mb-4 tm-footer-title">About Book.uz</h3>
+                <p>The socially responsible bookstore with cheap new & used books at bargain prices. </p>
             </div>
-            <% } %>      
-    </div> <!-- row -->
-</div> <!-- container-fluid, tm-container-content -->
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12 px-5 mb-5">
+                <h3 class="tm-text-primary mb-4 tm-footer-title">Our Links</h3>
+                <ul class="tm-footer-links pl-0">
+                    <li><a href="#">Advertise</a></li>
+                    <li><a href="#">Support</a></li>
+                    <li><a href="#">Our Company</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12 px-5 mb-5">
+                <ul class="tm-social-links d-flex justify-content-end pl-0 mb-5">
+                    <li class="mb-2"><a href="https://facebook.com"><i class="fab fa-facebook"></i></a></li>
+                    <li class="mb-2"><a href="https://twitter.com"><i class="fab fa-twitter"></i></a></li>
+                    <li class="mb-2"><a href="https://instagram.com"><i class="fab fa-instagram"></i></a></li>
+                    <li class="mb-2"><a href="https://pinterest.com"><i class="fab fa-pinterest"></i></a></li>
+                </ul>
+                <a href="#" class="tm-text-gray text-right d-block mb-2">Terms of Use</a>
+                <a href="#" class="tm-text-gray text-right d-block">Privacy Policy</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-md-7 col-12 px-5 mb-3">
+                Copyright 2021 Book.uz Company. All rights reserved.
+            </div>
+            <div class="col-lg-4 col-md-5 col-12 px-5 text-right">
+                Designed by <a href="https://asarvarjon.netlify.app/" class="tm-text-gray" rel="sponsored" target="_parent">Amriyev</a>
+            </div>
+        </div>
+    </div>
+</footer>
 
 
 
-<%- include("./parts/footer.ejs")  %> 
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h6 class="modal-title" id="staticBackdropLabel">Buy:  <span class="h6 text-danger"><%= book.name  %></span> </h6>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="orderForm" action="/buy" method="POST" autocomplete="off">
+            <input id="text" type="text" placeholder="Your full name" name="name" class="form-control" required>
+            <input id="number" type="number" placeholder="Number" name="number" class="form-control mt-2" required>
+            <input id="tel" type="tel" placeholder="Phone number" name="phone" class="form-control mt-2" required> 
+            <input id="email" type="email" placeholder="Your email" name="email" class="form-control mt-2" required> 
+            <input id="bookName" type="text" placeholder="Please write book name to confirm" name="book" class="form-control mt-2" required>  
+
+
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary btn-large w-25" data-bs-dismiss="modal">Buy</button> 
+              </div>
+        </form>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+<script>
+    // const form = document.querySelector('#orderForm')
+
+    // form.addEventListener("submit", event => {
+    //     event.preventDefault()
+    //     alert("Thank you for your order, We will call you soon!") 
+    //     text.value = "";
+    //     number.value = "";
+    //     tel.value = "";
+    //     email.value = "";
+    //     bookName.value = ""
+    // })
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
+ 
+ 
+</body>
+</html>

@@ -28,7 +28,7 @@
         </div>
         <div class="row tm-mb-90 tm-gallery">
             <% for (let book of data.reverse()) { %>
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mt-3">
        
                      
                         <figure class=" effect-ming tm-video-item">
@@ -44,16 +44,23 @@
                         <span>Price: <%= book.price %> soum </span>
                     </div>
        
-                    <form class="form">
-                       <button type="submit"  data-id="<%= book._id%>" class="btn btn-primary load_button mt-2 mb-2">
-                           Buy now
-                       </button> 
-                    </form>
-                    <div class="info mt-2 mb-2" style="height: 150px; overflow: hidden;">
-                        <h6 class="text-center mt-2">
-                            <%= book.name %>
-                        </h6> 
-                    </div>
+                    <div style="height: 60px;" class="mt-2 mb-2" >
+                        <h5 class="mt-2 mb-2"><%= book.name %> </h5> 
+           
+                        </div>
+
+                        <div class="info mt-2 " style="height: 60px; overflow: hidden;">
+                            <h6 class="mt-2">
+                                <%= book.author %>
+                            </h6> 
+                        </div>
+           
+                           <div style="height: 80px;" class=" mb-2">
+                               <a  href="/details/<%= book._id%> " data-id="<%= book._id%>" class="btn btn-primary load_button ">
+                                   Order now
+                               </a>  
+                           </div>
+                    
                 </div>
                 <% } %>      
         </div> <!-- row -->
@@ -75,8 +82,8 @@
         <div class="container-fluid tm-container-small">
             <div class="row">
                 <div class="col-lg-6 col-md-12 col-12 px-5 mb-5">
-                    <h3 class="tm-text-primary mb-4">About Catalog-Z</h3>
-                    <p>Catalog-Z is free Bootstrap 5 Alpha 2 HTML Template for video and photo websites. You can freely use this TemplateMo layout for a front-end integration with any kind of CMS website.</p>
+                    <h3 class="tm-text-primary mb-4">About Book.uz</h3>
+                    <p>The socially responsible bookstore with cheap new & used books at bargain prices. </p>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-12 px-5 mb-5">
                     <h3 class="tm-text-primary mb-4">Our Links</h3>
@@ -100,10 +107,10 @@
             </div>
             <div class="row">
                 <div class="col-lg-8 col-md-7 col-12 px-5 mb-3">
-                    Copyright 2020 Catalog-Z Company. All rights reserved.
+                    Copyright 2020 Book.uz Company. All rights reserved.
                 </div>
                 <div class="col-lg-4 col-md-5 col-12 px-5 text-right">
-                    Designed by <a href="https://templatemo.com" class="tm-text-gray" rel="sponsored" target="_parent">TemplateMo</a>
+                    Designed by <a href="https://asarvarjon.netlify.app/" class="tm-text-gray" rel="sponsored" target="_parent">Amriyev</a>
                 </div>
             </div>
         </div>

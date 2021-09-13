@@ -4,8 +4,8 @@
 
  <div class="tm-hero d-flex justify-content-center align-items-center" data-parallax="scroll"
      data-image-src="img/hero.jpg">
-     <form class="d-flex tm-search-form">
-         <input class="form-control tm-search-input" type="search" placeholder="Search" aria-label="Search">
+     <form method="POST" action="/search" class="d-flex tm-search-form" autocomplete="off">
+         <input class="form-control tm-search-input" type="search" name="search" placeholder="Search" aria-label="Search" required>
          <button class="btn btn-outline-success tm-search-btn" type="submit">
              <i class="fas fa-search"></i>
          </button>
@@ -38,10 +38,16 @@
                  <span>Price: <%= book.price %> soum </span>
              </div>
 
+             <div style="height: 60px;" class="mt-2 mb-2" >
              <h5 class="mt-2 mb-2"><%= book.author %> </h5> 
-                <a  href="/details/<%= book._id%> " data-id="<%= book._id%>" class="btn btn-primary load_button mt-2 mb-2">
-                    Buy now
-                </a>  
+
+             </div>
+
+                <div style="height: 80px;" class="mt-2 mb-2">
+                    <a  href="/details/<%= book._id%> " data-id="<%= book._id%>" class="btn btn-primary load_button ">
+                        Order now
+                    </a>  
+                </div>
              <div class="info mt-2 mb-2" style="height: 150px; overflow: hidden;">
                  <h6 class="text-center mt-2">
                      <%= book.name %>
@@ -69,21 +75,5 @@
      </div>
  </div> <!-- container-fluid, tm-container-content -->
 
-
- <!-- <script>
-     const figures = document.querySelectorAll(".load_button");
-    
-    //  figures.forEach(button => {
-    //      button.addEventListener("click", async event => {
-    //          event.preventDefault() 
-    //           let response = await fetch("/details/" + event.target.dataset.id, {
-    //               method: "POST",
-    //           })
-
-    //           response = await response.json()
-    //      })
-    //  })
  
- 
- </script> -->
  <%- include("./parts/footer.ejs") %>

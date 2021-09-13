@@ -12,10 +12,12 @@ async function mongodb() {
 
         const users = db.collection("users");
         const books = db.collection("books")
+        const orders = db.collection("orders")
 
         return {
             users,
             books,
+            orders,
         }
     } catch (error) {
         console.log("MongoDB Error", error);
