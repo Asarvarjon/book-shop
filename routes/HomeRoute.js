@@ -36,8 +36,7 @@ router.post("/buy", (req, res) => {
 })
 
 router.get("/order", async (req, res) => {
-    const order = await req.db.orders.find().toArray();
-    console.log(order);
+    const order = await req.db.orders.find().toArray(); 
 
     res.render("order", {
         user: req.user,
